@@ -6,12 +6,12 @@ defmodule CharmTest do
     assert capture_io(fn -> Charm.display :bright end) == "\e[1m\n"
   end
 
-  test :forground_color do
-    assert capture_io(fn -> Charm.forground :red end) == "\e[31m\n"
+  test :foreground_color do
+    assert capture_io(fn -> Charm.foreground :red end) == "\e[31m\n"
   end
 
   test :background_color do
-    assert capture_io(fn -> Charm.forground :black end) == "\e[30m\n"
+    assert capture_io(fn -> Charm.background :black end) == "\e[40m\n"
   end
   
   test :insert do
