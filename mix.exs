@@ -5,6 +5,7 @@ defmodule Charm.Mixfile do
     [app: :charm,
      version: "0.0.1",
      elixir: "~> 1.0.0",
+     description: "Use ansi terminal characters to write colors and cursor positions.",
      package: package,
      deps: deps]
   end
@@ -18,7 +19,8 @@ defmodule Charm.Mixfile do
 
   def package do
     [licenses: ["MIT"],
-     links: %{ github: "https://github.com/tomgco/elixir-charm"}
+     links: %{ github: "https://github.com/tomgco/elixir-charm"},
+     contributors: ["Tom Gallacher"]
     ]
   end
 
