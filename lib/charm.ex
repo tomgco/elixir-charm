@@ -61,8 +61,15 @@ Holy Grail: http://unixhelp.ed.ac.uk/CGI/man-cgi?console_codes+4
     write IO.ANSI.format [ "\e[#{y};#{x}f" ]
   end
 
-  defp write(esc) do
-    IO.puts esc
+  @doc "Reset the terminal"
+  def reset() do
+    write IO.ANSI.format [ "\e[0m" ]
+    write IO.ANSI.format [ "\e[2J" ]
+    write IO.ANSI.format [ "\ec" ]
+  end
+
+  def write(esc) do
+    IO.write esc
   end
 
 end
