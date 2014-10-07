@@ -16,7 +16,7 @@ Example
 
 ```
 
-Charm.reset()
+Charm.reset\0
 -------------
 
 Reset the entire screen, like the /usr/bin/reset command.
@@ -85,5 +85,5 @@ install
 With [hex](http://hex.pm) do:
 
 ```
-npm install charm
+
 ```
