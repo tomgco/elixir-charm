@@ -5,6 +5,7 @@ defmodule Charm.Mixfile do
     [app: :charm,
      version: "0.0.1",
      elixir: "~> 1.0.0",
+     package: package,
      deps: deps]
   end
 
@@ -13,6 +14,12 @@ defmodule Charm.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [applications: [:logger]]
+  end
+
+  def package do
+    [licenses: ["MIT"],
+     links: %{ github: "https://github.com/tomgco/elixir-charm"}
+    ]
   end
 
   # Dependencies can be Hex packages:
