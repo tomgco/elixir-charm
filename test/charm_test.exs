@@ -47,4 +47,23 @@ defmodule CharmTest do
     assert capture_io(fn -> Charm.position 1, 4 end) == "\e[4;1f"
   end
 
+  test :move do
+    assert capture_io(fn -> Charm.move 1, 4 end) == "\e[4B\e[1C"
+  end
+
+  test :up do
+    assert capture_io(fn -> Charm.up 1 end) == "\e[1A"
+  end
+
+  test :down do
+    assert capture_io(fn -> Charm.down 1 end) == "\e[1B"
+  end
+
+  test :left do
+    assert capture_io(fn -> Charm.left 1 end) == "\e[1D"
+  end
+
+  test :right do
+    assert capture_io(fn -> Charm.right 1 end) == "\e[1C"
+  end
 end

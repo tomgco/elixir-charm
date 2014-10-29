@@ -56,9 +56,46 @@ Holy Grail: http://unixhelp.ed.ac.uk/CGI/man-cgi?console_codes+4
   @doc "Set the cursor to hidden (terminal default)"
   def cursor(false), do: write IO.ANSI.format [ "\e[24l" ]
 
-  @doc "Move cursor to the indicated row, column."
+  @doc "Move cursor to the indicated absolute position: row, column."
   def position(x, y) do
     write IO.ANSI.format [ "\e[#{y};#{x}f" ]
+  end
+
+  @doc "Move cursor to the indicated relative position"
+  def move(x, y) when y < 0 and x > 0 do
+    up -y
+    right x
+  end
+
+  def move(x, y) when y < 0 and x < 0 do
+    up -y
+    left -x
+  end
+
+  def move(x, y) when y > 0 and x > 0 do
+    down y
+    right x
+  end
+
+  def move(x, y) when y > 0 and x < 0 do
+    down y
+    left -x
+  end
+
+  def up(y \\ 1) do
+    write IO.ANSI.format [ "\e[#{y}A" ]
+  end
+
+  def down(y \\ 1) do
+    write IO.ANSI.format [ "\e[#{y}B" ]
+  end
+
+  def left(y \\ 1) do
+    write IO.ANSI.format [ "\e[#{y}D" ]
+  end
+
+  def right(y \\ 1) do
+    write IO.ANSI.format [ "\e[#{y}C" ]
   end
 
   @doc "Reset the terminal"
